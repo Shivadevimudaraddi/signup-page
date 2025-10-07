@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Camera View */
+.camera-view {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 3px solid #e9ecef;
+}
+
+#videoElement {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+}
+
+.pose-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pose-guideline {
+    text-align: center;
+}
+
+.pose-guideline h4 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #007AFF;
+}
+
+.pose-guideline p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.camera-status {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    padding: 8px;
+    font-size: 0.8rem;
+}
+
+/* Analysis Results */
+.analysis-results {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #007AFF;
+}
+
+.analysis-results h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.results-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    border-left: 3px solid #34C759;
+}
+
+.result-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.result-value {
+    font-weight: 700;
+    color: #007AFF;
+}
+
+.result-unit {
+    color: #666;
+    font-size: 0.8rem;
+    margin-left: 2px;
+}
+
+/* Camera Controls */
+.camera-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    padding: 14px;
+    background: #007AFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #0056CC;
+    transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-capture {
+    padding: 14px;
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-capture:hover:not(:disabled) {
+    background: #30A14E;
+    transform: translateY(-1px);
+}
+
+.btn-capture:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-analyze {
+    padding: 14px;
+    background: #FF9500;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-analyze:hover:not(:disabled) {
+    background: #E68500;
+    transform: translateY(-1px);
+}
+
+.btn-analyze:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Photo Progress */
+.photo-progress {
+    display: flex;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    gap: 5px;
+}
+
+.photo-step {
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: #e9ecef;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.photo-step.active {
+    background: #007AFF;
+    color: white;
+    transform: scale(1.05);
+}
+
+.photo-step.completed {
+    background: #34C759;
+    color: white;
+}
+
+/* Navigation */
+.navigation-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.back-btn {
+    flex: 1;
+    padding: 12px;
+    background: #8E8E93;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #6D6D72;
+}
+
+.finish-btn {
+    flex: 1;
+    padding: 12px;
+    background: #5856D6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.finish-btn:hover {
+    background: #4A48C4;
+}
+
+/* Camera Active State */
+.camera-active {
+    border-color: #34C759;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .camera-card {
+        padding: 20px;
+    }
+    
+    .camera-view {
+        height: 300px;
+    }
+}

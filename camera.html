@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Analysis - Fi:Ai Pro</title>
+    <link rel="stylesheet" href="camera.css">
+    <script src="camera.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="camera-card">
+            <!-- Header -->
+            <div class="header">
+                <h2>Body Analysis</h2>
+                <p>Capture front and side views for AI analysis</p>
+            </div>
+
+            <!-- Camera View -->
+            <div class="camera-view" id="cameraView">
+                <video id="videoElement" autoplay playsinline></video>
+                <div class="pose-overlay" id="poseOverlay">
+                    <div class="pose-guideline">
+                        <h4>Front View</h4>
+                        <p>Stand straight, arms at sides</p>
+                    </div>
+                </div>
+                <div class="camera-status" id="cameraStatus">
+                    Ready to start camera
+                </div>
+            </div>
+
+            <!-- Analysis Results -->
+            <div class="analysis-results" id="analysisResults" style="display: none;">
+                <h4>AI Analysis Results</h4>
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Results will appear here -->
+                </div>
+            </div>
+
+            <!-- Camera Controls -->
+            <div class="camera-controls">
+                <button id="startCamera" class="btn-primary">
+                    Start Camera
+                </button>
+                <button id="captureBtn" class="btn-capture" disabled>
+                    Capture Front View
+                </button>
+                <button id="analyzeBtn" class="btn-analyze" disabled>
+                    Analyze Body
+                </button>
+            </div>
+
+            <!-- Photo Progress -->
+            <div class="photo-progress">
+                <div class="photo-step active" data-angle="front">
+                    <span>Front View</span>
+                </div>
+                <div class="photo-step" data-angle="side">
+                    <span>Side View</span>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navigation-actions">
+                <button class="back-btn" onclick="goBack()">Back</button>
+                <button class="finish-btn" id="finishBtn" onclick="finishAnalysis()">Finish</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/camera.js"></script>
+</body>
+</html>

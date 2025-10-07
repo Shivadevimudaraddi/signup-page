@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.logo-section h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tagline {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Description */
+.description {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Features List */
+.features-list {
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.feature-item.completed {
+    background: #f0f9ff;
+    border-left: 4px solid #007AFF;
+}
+
+.feature-checkbox {
+    font-size: 1.2rem;
+    margin-right: 12px;
+    margin-top: 2px;
+}
+
+.feature-item.completed .feature-checkbox {
+    color: #007AFF;
+}
+
+.feature-text {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.feature-subtext {
+    font-size: 0.85rem;
+    color: #666;
+    display: block;
+    line-height: 1.4;
+}
+
+/* Get Started Button */
+.get-started-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #007AFF, #5856D6);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+}
+
+.get-started-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+}
+
+.get-started-btn:active {
+    transform: translateY(0);
+}
